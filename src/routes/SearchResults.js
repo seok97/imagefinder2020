@@ -17,7 +17,7 @@ class SearchResults extends React.Component {
   }
   render() {
     const { key } = this.state
-    console.log(key)
+
     return (
       <div>
         <h1>검색결과 페이지</h1>
