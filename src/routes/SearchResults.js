@@ -5,20 +5,16 @@ import Images from "../components/Images"
 
 class SearchResults extends React.Component {
   state = {
-    isLoading: false,
-    key: "",
     images: [],
+    isLoading: false,
   }
 
-  getImages = async (key) => {
-    const serverurl = "http://localhost:3002/index?q=" + key
-    console.log("this.state.key : " + key)
-    console.log("서버로 보내는 값: " + serverurl)
+  getImages = async () => {
+    const serverurl =
+      "http://localhost:3002/index?q=" + this.props.location.state.key
     await axios.get(serverurl).then((res) => {
-      console.log(res.data)
-      console.log(typeof res.data)
+      this.setState({ images: res.data, isLoading: true })
     })
-    this.setState({ isLoading: true })
   }
 
   componentDidMount() {
@@ -26,24 +22,19 @@ class SearchResults extends React.Component {
     if (location.state === undefined) {
       history.push("/")
     } else {
-      this.setState({
-        key: location.state.key,
-      })
-      this.getImages(location.state.key)
+      this.getImages()
     }
   }
 
   render() {
-    const { key, images, isLoading } = this.state
-    console.log("저장된 이미지값 : " + images)
+    const { images, isLoading } = this.state
+
     return (
       <div>
         {isLoading ? (
           <div className="main">
-            <h1>검색결과 페이지</h1>
-            <h2>가져온 key값 : {key}</h2>
-            {images.map((image) => {
-              return <Images key={image.idx} title={image.alt} />
+            {images.map((att) => {
+              return <Images title={att.alt} key={att.idx} />
             })}
           </div>
         ) : (
