@@ -7,8 +7,6 @@ class Home extends React.Component {
   }
 
   Searchsubmit = () => {
-    console.log("prop 보내기")
-    console.log("현재 state : " + this.state.searchkey)
     const { history } = this.props
     const { searchkey } = this.state
     history.push({
