@@ -1,12 +1,15 @@
 import React from "react"
 import axios from "axios"
 import "./SearchResults.css"
+import Searchinput from "../components/Searchinput"
 import Images from "../components/Images"
 
 class SearchResults extends React.Component {
   state = {
     images: [],
     isLoading: false,
+    searchkey: "",
+    classcheck: "searchrep_header_div_input",
   }
 
   getImages = async (url) => {
@@ -28,14 +31,33 @@ class SearchResults extends React.Component {
     }
   }
 
+  /////////////////////////////////////
+
+  Searchsubmit = (searchkey) => {
+    const { history } = this.props
+
+    history.push({
+      pathname: "/searchresult/" + searchkey,
+      state: { key: searchkey },
+    })
+  }
+
+  ///////////////////////////////////
   render() {
-    const { images, isLoading } = this.state
+    const { images, isLoading, classcheck } = this.state
 
     return (
       <div>
         {isLoading ? (
           <div className="searchrep">
-            <div className="searchrep_header"></div>
+            <div className="searchrep_header">
+              <div className="searchrep_header_div">
+                <Searchinput
+                  pathcheck={classcheck}
+                  onSubmit={this.Searchsubmit}
+                />
+              </div>
+            </div>
             <div className="searchrep_body">
               {images.map((img) => {
                 return (

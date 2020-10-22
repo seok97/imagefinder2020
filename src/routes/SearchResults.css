@@ -4,6 +4,24 @@
   width: 100%;
 }
 
+.searchrep_header {
+  height: 54px;
+  align-items: center;
+  border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  text-align: center;
+}
+
+.searchrep_header_div {
+  padding: 0 20px;
+  height: 54px;
+  position: relative;
+  vertical-align: baseline;
+  margin: 0;
+}
+
+.searchrep_header_div_input {
+  font-size: 16px;
+}
 .searchrep_body {
   width: 100%;
 }
