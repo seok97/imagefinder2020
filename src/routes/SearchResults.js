@@ -9,12 +9,11 @@ class SearchResults extends React.Component {
     isLoading: false,
   }
 
-  getImages = async () => {
-    const serverurl =
-      "http://localhost:3002/index?q=" + this.props.location.state.key
-    await axios.get(serverurl).then((res) => {
-      this.setState({ images: res.data, isLoading: true })
-    })
+  getImages = async (url) => {
+    const {
+      data: { imaglist },
+    } = await axios.get(url)
+    this.setState({ images: imaglist, isLoading: true })
   }
 
   componentDidMount() {
@@ -22,7 +21,8 @@ class SearchResults extends React.Component {
     if (location.state === undefined) {
       history.push("/")
     } else {
-      this.getImages()
+      const serverurl = "http://localhost:3002/index?q=" + location.state.key
+      this.getImages(serverurl)
     }
   }
 
@@ -33,8 +33,8 @@ class SearchResults extends React.Component {
       <div>
         {isLoading ? (
           <div className="main">
-            {images.map((att) => {
-              return <Images title={att.alt} key={att.idx} />
+            {images.map((img) => {
+              return <Images title={img.alt} key={img.idx} src={img.src} />
             })}
           </div>
         ) : (

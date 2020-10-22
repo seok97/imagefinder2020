@@ -59,7 +59,7 @@ router.get("/", function (req, res, next) {
           //log('src : ' +src);
         }
       })
-      res.send(sendData)
+      res.send({ imaglist: sendData })
     })
   } else {
     res.send({ data: "fail..." })
