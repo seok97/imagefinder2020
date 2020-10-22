@@ -10,7 +10,7 @@ class Home extends React.Component {
     const { history } = this.props
     const { searchkey } = this.state
     history.push({
-      pathname: "/searchresult",
+      pathname: "/searchresult/" + searchkey,
       state: { key: searchkey },
     })
   }

@@ -1,5 +1,6 @@
 import React from "react"
 import { HashRouter, Route } from "react-router-dom"
+import "./App.css"
 import Home from "./routes/Home"
 import SearchResults from "./routes/SearchResults"
 
@@ -8,7 +9,7 @@ class App extends React.Component {
     return (
       <HashRouter>
         <Route path="/" exact={true} component={Home} />
-        <Route path="/searchresult" component={SearchResults} />
+        <Route path="/searchresult/:q" component={SearchResults} />
       </HashRouter>
     )
   }

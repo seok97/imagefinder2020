@@ -18,6 +18,8 @@ class SearchResults extends React.Component {
 
   componentDidMount() {
     const { location, history } = this.props
+    console.log(location)
+
     if (location.state === undefined) {
       history.push("/")
     } else {
@@ -32,10 +34,21 @@ class SearchResults extends React.Component {
     return (
       <div>
         {isLoading ? (
-          <div className="main">
-            {images.map((img) => {
-              return <Images title={img.alt} key={img.idx} src={img.src} />
-            })}
+          <div className="searchrep">
+            <div className="searchrep_header"></div>
+            <div className="searchrep_body">
+              {images.map((img) => {
+                return (
+                  <Images
+                    title={img.alt}
+                    key={img.idx}
+                    src={img.src}
+                    href={img.href}
+                  />
+                )
+              })}
+            </div>
+            <div className="searchrep_footer"></div>
           </div>
         ) : (
           <div>Loading...</div>

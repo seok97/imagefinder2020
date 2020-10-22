@@ -11,35 +11,27 @@ router.get("/", function (req, res, next) {
       "http://www.google.com/search?q=" + searchkeyword + "&tbm=isch"
     var param = {}
     var sendData = []
+    var sendhref = []
     client.fetch(google, param, function (err, $, body) {
       if (err) {
         console.log("Error:", err)
         return
       }
       var index = 0
-      $("a.wXeWr,.islib,.nfEiy,.mM5pbd img").each(function (idx) {
-        if (idx < 40) {
-          var data_src = $(this).attr("data-src")
-          var alt = $(this).attr("alt")
 
-          /*
-          sendData.push({
-            alt: alt,
-            src: data_src,
-            idx: index,
-          })
-          */
+      console.log("test")
 
-          //var src = $(this).attr('src');
+      var hreftag = $(
+        "div#islrg div.islrc div a.VFACy,.kGQAp,.sMi44c,.lNHeqe,.WGvvNb"
+      )
 
-          // src = URL.resolve(url, src);
-
-          //log(idx);
-          //log('alt : '+alt);
-          //log('data_src : ' +data_src);
-          //log('src : ' +src);
+      hreftag.each(function (idx) {
+        if (idx >= 20) {
+          sendhref.push($(this).attr("href"))
         }
+      })
 
+      $("a.wXeWr,.islib,.nfEiy,.mM5pbd img").each(function (idx) {
         if (idx > 40 && idx % 2 != 0) {
           var data_src = $(this).attr("data-src")
           var alt = $(this).attr("alt")
@@ -49,6 +41,7 @@ router.get("/", function (req, res, next) {
             alt: alt,
             src: data_src,
             idx: index,
+            href: sendhref[index],
           })
           index++
           // src = URL.resolve(url, src);
@@ -59,6 +52,7 @@ router.get("/", function (req, res, next) {
           //log('src : ' +src);
         }
       })
+
       res.send({ imaglist: sendData })
     })
   } else {
