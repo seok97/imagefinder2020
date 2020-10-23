@@ -1,6 +1,5 @@
 .searchrep {
   text-align: center;
-  justify-content: center;
   width: 100%;
 }
 
@@ -9,19 +8,34 @@
   align-items: center;
   border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
   text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
 }
 
 .searchrep_header_div {
   padding: 0 20px;
   height: 54px;
-  position: relative;
-  vertical-align: baseline;
-  margin: 0;
+  margin: 0 30% 0;
+}
+
+.searchw {
+  width: 100%;
 }
 
 .searchrep_header_div_input {
   font-size: 16px;
+  width: 80%;
+  border: none;
 }
 .searchrep_body {
   width: 100%;
+  margin-top: 54px;
+}
+
+img.logo {
+  visibility: hidden;
+  display: none;
 }

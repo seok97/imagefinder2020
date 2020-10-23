@@ -21,7 +21,9 @@ class Home extends React.Component {
     return (
       <div className="homepage">
         <div className="homepage_body">
+          <div className="homepage_body_div">
           <Searchinput pathcheck={classcheck} onSubmit={this.Searchsubmit} />
+          </div>
         </div>
       </div>
     )
