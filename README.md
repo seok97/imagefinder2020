@@ -3,7 +3,7 @@
 프로젝트 생성 2020102118:20
 
 git LF 에러 해결
--> git config --global core.autocrlf true
+git config --global core.autocrlf true
 
 20201022
 objects are not valid as a react child 에러 해결
