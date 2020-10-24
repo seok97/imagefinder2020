@@ -8,7 +8,7 @@ class Home extends React.Component {
     classcheck: "homepage_body_input",
   }
 
-  Searchsubmit = (searchkey) => {
+  Searchsubmit_Home = (searchkey) => {
     const { history } = this.props
     history.push({
       pathname: "/searchresult/" + searchkey,
@@ -22,7 +22,10 @@ class Home extends React.Component {
       <div className="homepage">
         <div className="homepage_body">
           <div className="homepage_body_div">
-          <Searchinput pathcheck={classcheck} onSubmit={this.Searchsubmit} />
+            <Searchinput
+              pathcheck={classcheck}
+              onSubmit={this.Searchsubmit_Home}
+            />
           </div>
         </div>
       </div>

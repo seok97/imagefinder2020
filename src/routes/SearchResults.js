@@ -21,10 +21,10 @@ class SearchResults extends React.Component {
   }
 
   componentDidMount() {
-    console.log("mount !! ");
+    console.log("mount !! ")
     const { location, history } = this.props
     console.log(location)
-    
+
     if (location.state === undefined) {
       history.push("/")
     } else {
@@ -35,11 +35,12 @@ class SearchResults extends React.Component {
   /////////////////////////////////////
 
   Searchsubmit = (searchkey) => {
-    console.log("submit !!");
-    this.setState({isLoading: false});
-    const { history, location } = this.props
-    if(location !== undefined){
-      this.getImages("http://localhost:3002/index?q=" + searchkey);
+    console.log("submit !!")
+    this.setState({ isLoading: false })
+    const { location } = this.props
+    console.log(location)
+    if (location !== undefined) {
+      this.getImages("http://localhost:3002/index?q=" + searchkey)
     }
   }
 
