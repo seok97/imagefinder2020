@@ -29,7 +29,7 @@ class Searchinput extends React.Component {
 
   render() {
     const { searchkeychange, pressenter } = this
-    const { classcheck, searchkey } = this.state
+    const { classcheck } = this.state
     return (
       <div className="searchw">
         <form onSubmit={this.onFormSubmit}>
@@ -40,7 +40,7 @@ class Searchinput extends React.Component {
             placeholder="검색어 입력"
             onChange={searchkeychange}
             onKeyPress={pressenter}
-            value={searchkey}
+            value={this.state.searchkey}
           />
         </form>
       </div>

@@ -35,7 +35,6 @@ class SearchResults extends React.Component {
 
   Searchsubmit = (searchkey) => {
     const { history } = this.props
-
     history.push({
       pathname: "/searchresult/" + searchkey,
       state: { key: searchkey },
