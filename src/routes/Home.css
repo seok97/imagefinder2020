@@ -16,10 +16,12 @@ body,
 }
 
 .searchw {
+  height: 40px;
   padding: 0;
   border: 1px solid #dfe1e5;
   width: 45%;
   border-radius: 30px;
+  display: table;
 }
 
 .searchw:hover {
@@ -28,10 +30,16 @@ body,
 }
 
 input.homepage_body_input {
-  height: 40px;
+  vertical-align: middle;
+  height: 100%;
   border: none;
   padding: 0 15px 0;
   font-size: 20px;
   outline: none;
   width: 80%;
+}
+
+form {
+  display: table-cell;
+  vertical-align: middle;
 }

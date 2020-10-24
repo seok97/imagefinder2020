@@ -8,6 +8,7 @@ function Images({ title, src, href }) {
       <a className="images_a" href={href}>
         <img className="images_img" src={src} alt={title} title={title} />
         <div className="images_title">{title}</div>
+        <div className="images_a_darkness"></div>
       </a>
     </div>
   )

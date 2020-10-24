@@ -19,6 +19,9 @@
   padding: 0 20px;
   height: 54px;
   margin: 0 30% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchw {

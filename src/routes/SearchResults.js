@@ -13,6 +13,7 @@ class SearchResults extends React.Component {
   }
 
   getImages = async (url) => {
+    console.log("getIMAGE !!!")
     const {
       data: { imaglist },
     } = await axios.get(url)
@@ -20,29 +21,31 @@ class SearchResults extends React.Component {
   }
 
   componentDidMount() {
+    console.log("mount !! ");
     const { location, history } = this.props
     console.log(location)
-
+    
     if (location.state === undefined) {
       history.push("/")
     } else {
-      const serverurl = "http://localhost:3002/index?q=" + location.state.key
-      this.getImages(serverurl)
+      this.getImages("http://localhost:3002/index?q=" + location.state.key)
     }
   }
 
   /////////////////////////////////////
 
   Searchsubmit = (searchkey) => {
-    const { history } = this.props
-    history.push({
-      pathname: "/searchresult/" + searchkey,
-      state: { key: searchkey },
-    })
+    console.log("submit !!");
+    this.setState({isLoading: false});
+    const { history, location } = this.props
+    if(location !== undefined){
+      this.getImages("http://localhost:3002/index?q=" + searchkey);
+    }
   }
 
   ///////////////////////////////////
   render() {
+    console.log("render !!")
     const { images, isLoading, classcheck } = this.state
 
     return (

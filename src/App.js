@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <HashRouter>
         <Route path="/" exact={true} component={Home} />
-        <Route path="/searchresult/:q" component={SearchResults} />
+        <Route path="/searchresult" component={SearchResults} />
       </HashRouter>
     )
   }
