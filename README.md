@@ -17,10 +17,10 @@ function Images( title, src ) { }
 ## 개발 순서
 
 1. 회원가입, 로그인 완성
-   dbconnect - success
-   getuserlist ,insert userdata to db - success
-   siginreactpage
-   loginreactpage
+   1-1dbconnect - success
+   1-2getuserlist ,insert userdata to db - success
+   1-3siginreactpage
+   1-4loginreactpage
 
 2. API 로그인
 3. 알고리즘 도입
