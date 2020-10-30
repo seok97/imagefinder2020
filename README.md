@@ -33,3 +33,46 @@ B가 게임 이라는 컨텐츠를 이용했을때,
 B에게 자동차와 캠핑 컨텐츠를 추천해 준다.
 
 이미지의 경우, 사용자 선호도 카테고리를 처음 정하게 하여 위와 같이 추천한다.
+
+
+
+
+
+
+
+
+
+css 
+
+.searchrep_header_home{
+  margin-left: 20px;
+}
+.searchrep_header_home a{
+  text-decoration: none;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
+    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  cursor: pointer;
+  pointer-events: auto;
+  color: rgb(59, 59, 59);
+}
+
+
+
+<div className="searchrep">
+            <div className="searchrep_header">
+              <div className="searchrep_header_home">
+              <Link to="/">Home</Link>
+              </div>
+              <div className="searchrep_header_div">
+                <Searchinput
+                  pathcheck={classcheck}
+                  onSubmit={this.Searchsubmit}
+                />
+              </div>
+            </div>
+
