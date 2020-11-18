@@ -1,0 +1,38 @@
+.sigin_top img,
+.sigin_top h2 {
+  display: inline-block;
+}
+
+.sigin_top img {
+  float: left;
+}
+
+.sigin_top {
+  border-bottom: solid 1px gray;
+}
+
+.sigin_form {
+  display: inline-block;
+}
+
+.wrapper {
+  margin-top: 1rem;
+}
+
+.lavel {
+  float: left;
+  font-size: 1rem;
+  color: gray;
+  margin-bottom: 0.25rem;
+}
+
+input {
+  width: 100%;
+  border: 1px solid gray;
+  outline: none;
+  border-radius: 0px;
+  line-height: 2.5rem;
+  font-size: 1.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}

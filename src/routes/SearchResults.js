@@ -3,6 +3,7 @@ import axios from "axios"
 import "./SearchResults.css"
 import Searchinput from "../components/Searchinput"
 import Images from "../components/Images"
+import { Link } from "react-router-dom"
 
 class SearchResults extends React.Component {
   state = {
@@ -48,12 +49,16 @@ class SearchResults extends React.Component {
   render() {
     console.log("render !!")
     const { images, isLoading, classcheck } = this.state
-
     return (
       <div>
         {isLoading ? (
           <div className="searchrep">
             <div className="searchrep_header">
+              <div className="searchrep_header_div_homeicondiv">
+                <Link to="/">
+                  <img src="./tempsnip.ico" />
+                </Link>
+              </div>
               <div className="searchrep_header_div">
                 <Searchinput
                   pathcheck={classcheck}

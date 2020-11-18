@@ -15,10 +15,22 @@
   background-color: white;
 }
 
-.searchrep_header_div {
-  padding: 0 20px;
+.searchrep_header div {
+  display: inline-block;
+}
+
+.searchrep_header_div_homeicondiv {
+  height: 55px;
+}
+
+.searchrep_header_div_homeicondiv a img {
   height: 54px;
-  margin: 0 30% 0;
+}
+
+.searchrep_header_div {
+  padding: 6px 20px 0;
+  height: 54px;
+  margin: 0 20% 0;
   display: flex;
   justify-content: center;
   align-items: center;

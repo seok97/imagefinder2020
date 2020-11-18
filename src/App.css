@@ -2,3 +2,18 @@ body {
   margin: 0;
   width: auto;
 }
+
+.homepage_top {
+}
+
+.homepage_top .navigater ul {
+  padding: 0;
+}
+
+.homepage_top .navigater ul li {
+  margin-right: 20px;
+}
+
+.homepage_top .navigater ul > li:nth-child(1) {
+  float: left;
+}
