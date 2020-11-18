@@ -34,35 +34,27 @@ B에게 자동차와 캠핑 컨텐츠를 추천해 준다.
 
 이미지의 경우, 사용자 선호도 카테고리를 처음 정하게 하여 위와 같이 추천한다.
 
-
-
-
-
-
-
-
-
-css 
+css
 
 .searchrep_header_home{
-  margin-left: 20px;
+margin-left: 20px;
 }
 .searchrep_header_home a{
-  text-decoration: none;
-  text-align: left;
-  -webkit-font-smoothing: antialiased;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
-    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
-  cursor: pointer;
-  pointer-events: auto;
-  color: rgb(59, 59, 59);
+text-decoration: none;
+text-align: left;
+-webkit-font-smoothing: antialiased;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
+Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
+"Segoe UI Emoji", "Segoe UI Symbol";
+cursor: pointer;
+pointer-events: auto;
+color: rgb(59, 59, 59);
 }
 
+/\*
 
-/*
 <div className="searchrep">
             <div className="searchrep_header">
               <div className="searchrep_header_home">
@@ -76,3 +68,65 @@ css
               </div>
             </div>
 */
+
+/////
+회원가입 예제
+
+class Login extends React.Component {
+constructor(props) {
+super(props);
+​
+this.state = {
+idx: null,
+email: "",
+pw: "",
+nickname: "",
+isLogin: null
+};
+}
+//이메일 입력창 관리
+handleEmail = e => {
+this.setState({
+email: e.target.value
+});
+};
+//패스워드 입력창 관리
+handlePW = e => {
+this.setState({
+pw: e.target.value
+});
+};
+//로그인버튼 클릭시 서버로 데이터 전송
+handleSubmit = e => {
+e.preventDefault();
+​
+const login_info = {
+method: "POST",
+body: JSON.stringify(this.state),
+headers: {
+"Content-Type": "application/json"
+}
+};
+fetch(" node server ", login_info)
+.then(res => {
+return res.json();
+})
+.then(json => {
+//json형식 {idx: 8, nickname: "noh", email: "noh@gmail.com", success: true}
+if (json.success === true) {
+alert("로그인되었습니다");
+// 서버로 부터 받은 JSON형태의 데이터를 로컬스토리지에 우선 저장한다.
+window.localStorage.setItem('userInfo', JSON.stringify(json))
+//스테이트에 유저정보를 저장한다.
+this.setState({
+idx: json.idx,
+email: json.email,
+nickname: json.nickname,
+isLogin: json.success
+});
+this.props.history.push("/main")
+} else {
+alert("아이디 혹은 비밀번호를 확인하세요");
+}
+});
+};

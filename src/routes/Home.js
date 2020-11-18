@@ -28,7 +28,7 @@ class Home extends React.Component {
                 <li>Home</li>
               </Link>
               <Link to="/sigin">
-                <li>sigin</li>
+                <li>signup</li>
               </Link>
               <Link to="/login">
                 <li>login</li>

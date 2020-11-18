@@ -10,7 +10,7 @@ class Sigin extends React.Component {
           <Link to="/">
             <img className="homebtn" src="./tempsnip.ico" />
           </Link>
-          <h2>sigin</h2>
+          <h2>signup</h2>
         </div>
         <div className="sigin_form">
           <form>
@@ -20,7 +20,7 @@ class Sigin extends React.Component {
             </div>
             <div className="wrapper">
               <div className="lavel">이름</div>
-              <input type="password" name="password" placeholder="이름" />
+              <input type="password" name="name" placeholder="이름" />
             </div>
             <div className="wrapper">
               <div className="lavel">패스워드</div>
@@ -29,7 +29,7 @@ class Sigin extends React.Component {
             <div>
               <input
                 type="button"
-                value="sigin"
+                value="signup"
                 onClick={console.log("push!")}
               />
             </div>
